@@ -20,6 +20,9 @@ abstract class AppStrings {
   static const String signUp = 'Sign up';
   static const String password = 'Password';
   static const String login = 'Login';
+  static const String enterValidEmail = 'Please enter a valid email';
+  static const String enterValidPassword =
+      'Password should be atleast 6 characters long';
 
   //Sign Up Screen
 
@@ -30,6 +33,7 @@ abstract class AppStrings {
   static const String logIn = 'Log In';
   static const String phoneNumber = 'Phone number';
   static const String phone = 'Phone';
+  static const String phoneIsRequired = 'Please enter phone numeber';
 
   //Home Screen
 

@@ -1,6 +1,7 @@
 import 'package:eco_cart_ecommerce/constants/app_strings.dart';
 import 'package:eco_cart_ecommerce/constants/text_styles.dart';
 import 'package:eco_cart_ecommerce/ui/screens/login/login_screen.dart';
+import 'package:eco_cart_ecommerce/ui/screens/splash/splash_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,17 +15,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final splashProvider = SplashViewModel();
+
   @override
   void initState() {
-    goToLoginScreen();
+    splashProvider.checkIsUserLoggedIn(context);
     super.initState();
   }
 
-  goToLoginScreen() async {
-    await Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushNamed(context, LoginScreen.routeName);
-    });
-  }
+  // goToLoginScreen() async {
+  //   await Future.delayed(const Duration(seconds: 2), () {
+  //     Navigator.pushNamed(context, LoginScreen.routeName);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

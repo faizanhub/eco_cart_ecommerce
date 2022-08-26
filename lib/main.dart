@@ -3,9 +3,9 @@ import 'package:eco_cart_ecommerce/routes.dart';
 import 'package:eco_cart_ecommerce/ui/screens/cart_screen.dart';
 import 'package:eco_cart_ecommerce/ui/screens/categories_detail_screen.dart';
 import 'package:eco_cart_ecommerce/ui/screens/checkout_screen.dart';
-import 'package:eco_cart_ecommerce/ui/screens/home_screen.dart';
+import 'package:eco_cart_ecommerce/ui/screens/home/home_screen.dart';
 import 'package:eco_cart_ecommerce/ui/screens/order_placed_screen.dart';
-import 'package:eco_cart_ecommerce/ui/screens/splash_screen.dart';
+import 'package:eco_cart_ecommerce/ui/screens/splash/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

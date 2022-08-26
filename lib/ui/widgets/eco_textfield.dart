@@ -9,6 +9,7 @@ class EcoTextField extends StatelessWidget {
   final String? labelText;
   final bool obscureText;
   final Color fillColor;
+  final String? Function(String?)? validator;
 
   EcoTextField({
     required this.controller,
@@ -18,12 +19,14 @@ class EcoTextField extends StatelessWidget {
     this.obscureText = false,
     this.suffixIcon,
     this.fillColor = Colors.white,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      validator: validator,
       decoration: InputDecoration(
         fillColor: fillColor,
         filled: true,

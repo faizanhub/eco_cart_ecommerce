@@ -13,8 +13,8 @@ class LoginResponse {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['statusCode'] = this.statusCode;
+    data['message'] = message;
+    data['statusCode'] = statusCode;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -41,11 +41,11 @@ class LoginData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['password'] = this.password;
-    data['accessToken'] = this.accessToken;
+    data['id'] = id;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['password'] = password;
+    data['accessToken'] = accessToken;
     return data;
   }
 }
