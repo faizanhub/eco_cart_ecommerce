@@ -7,6 +7,7 @@ import 'package:eco_cart_ecommerce/ui/widgets/eco_button.dart';
 import 'package:eco_cart_ecommerce/ui/widgets/eco_custom_row.dart';
 import 'package:eco_cart_ecommerce/ui/widgets/eco_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -25,16 +26,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  bool isShowPassword = true;
-
-  toggleIsShowPassword() {
-    setState(() {
-      isShowPassword = !isShowPassword;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.black,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
+
     return ChangeNotifierProvider<SignUpViewModel>(
       create: (_) => SignUpViewModel(),
       child: Consumer<SignUpViewModel>(
@@ -127,16 +127,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             labelText: AppStrings.password,
                             prefixIcon: const Icon(Icons.lock),
                             validator: validatePasswordField,
-                            suffixIcon: isShowPassword
+                            suffixIcon: model.isShowPassword
                                 ? IconButton(
                                     icon: const Icon(
                                         Icons.remove_red_eye_outlined),
-                                    onPressed: toggleIsShowPassword,
+                                    onPressed: model.toggleIsShowPassword,
                                   )
                                 : IconButton(
                                     icon: const Icon(
                                         Icons.visibility_off_outlined),
-                                    onPressed: toggleIsShowPassword,
+                                    onPressed: model.toggleIsShowPassword,
                                   ),
                             obscureText: model.isShowPassword,
                           ),

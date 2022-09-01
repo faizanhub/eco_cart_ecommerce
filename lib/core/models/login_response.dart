@@ -8,11 +8,11 @@ class LoginResponse {
   LoginResponse.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     statusCode = json['statusCode'];
-    data = json['data'] != null ? new LoginData.fromJson(json['data']) : null;
+    data = json['data'] != null ? LoginData.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['message'] = message;
     data['statusCode'] = statusCode;
     if (this.data != null) {
@@ -40,7 +40,7 @@ class LoginData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
     data['email'] = email;
     data['phone'] = phone;

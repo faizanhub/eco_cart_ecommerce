@@ -22,7 +22,7 @@ class MySharedPreference {
 
       return userData;
     } else {
-      throw Exception('Some Error occured while shared preference');
+      throw Exception('Some Error occurred while shared preference');
     }
 
     // return true;

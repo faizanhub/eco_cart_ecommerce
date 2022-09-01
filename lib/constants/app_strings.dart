@@ -34,6 +34,7 @@ abstract class AppStrings {
   static const String phoneNumber = 'Phone number';
   static const String phone = 'Phone';
   static const String phoneIsRequired = 'Please enter phone numeber';
+  static const String fieldCannotBeEmpty = 'Field is required';
 
   //Home Screen
 

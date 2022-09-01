@@ -2,16 +2,17 @@ import 'package:eco_cart_ecommerce/constants/app_strings.dart';
 import 'package:eco_cart_ecommerce/constants/colors.dart';
 import 'package:eco_cart_ecommerce/constants/text_styles.dart';
 import 'package:eco_cart_ecommerce/core/models/all_products.dart';
+import 'package:eco_cart_ecommerce/core/models/category_by_id.dart';
 import 'package:eco_cart_ecommerce/core/providers/cart_provider.dart';
 import 'package:eco_cart_ecommerce/core/utils/extensions.dart';
 import 'package:eco_cart_ecommerce/ui/widgets/eco_addToCart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FeaturedProducts extends StatelessWidget {
+class CategoriesDetailProducts extends StatelessWidget {
   final List<Product> allProductsList;
 
-  const FeaturedProducts({
+  const CategoriesDetailProducts({
     super.key,
     required this.allProductsList,
   });
@@ -20,17 +21,20 @@ class FeaturedProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     var cartProvider = Provider.of<CartProvider>(context);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 17.0),
-      child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 2,
-          physics: const ScrollPhysics(),
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 10,
-          childAspectRatio: 8.0 / 13.0,
-          children: allProductsList
-              .map((product) => Container(
+    return allProductsList.isEmpty
+        ? const Center(
+            child: Text('No Items yet'),
+          )
+        : GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            physics: const ScrollPhysics(),
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 10,
+            childAspectRatio: 8.0 / 13.0,
+            children: allProductsList
+                .map(
+                  (product) => Container(
                     color: Colors.white,
                     child: Column(
                       // crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,6 +73,11 @@ class FeaturedProducts extends StatelessWidget {
                                   // fit: BoxFit.cover,
                                   height: 80,
                                   width: 80,
+                                  errorBuilder:
+                                      (context, exception, stackTrack) =>
+                                          const Icon(
+                                    Icons.error,
+                                  ),
                                 ),
                               ),
                             ),
@@ -87,7 +96,6 @@ class FeaturedProducts extends StatelessWidget {
                         ),
                         cartProvider.isProductAdded(product)
                             ? EcoAddToCart(
-                                // cartQty: product.qty!,
                                 cartQty: cartProvider.getQty(product),
                                 onIncrementTap: () =>
                                     cartProvider.incrementCart(product),
@@ -118,11 +126,11 @@ class FeaturedProducts extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                              )
+                              ),
                       ],
                     ),
-                  ))
-              .toList()),
-    );
+                  ),
+                )
+                .toList());
   }
 }

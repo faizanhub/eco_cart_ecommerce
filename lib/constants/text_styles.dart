@@ -30,6 +30,12 @@ final greyTextStyle = GoogleFonts.poppins(
   color: AppColors.greyColor,
 );
 
+final smallestGreyTextStyle = GoogleFonts.poppins(
+  fontSize: 12,
+  fontWeight: FontWeight.w400,
+  color: AppColors.greyColor,
+);
+
 final greyRegularTextStyle = greyTextStyle.copyWith(
   fontWeight: FontWeight.w400,
 );

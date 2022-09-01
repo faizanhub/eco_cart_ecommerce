@@ -10,6 +10,7 @@ class EcoTextField extends StatelessWidget {
   final bool obscureText;
   final Color fillColor;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
 
   EcoTextField({
     required this.controller,
@@ -20,6 +21,7 @@ class EcoTextField extends StatelessWidget {
     this.suffixIcon,
     this.fillColor = Colors.white,
     this.validator,
+    this.keyboardType = TextInputType.text,
   });
 
   @override
@@ -37,6 +39,7 @@ class EcoTextField extends StatelessWidget {
         border: InputBorder.none,
       ),
       obscureText: obscureText ? true : false,
+      keyboardType: keyboardType,
     );
   }
 }

@@ -20,3 +20,10 @@ String? validatePhoneField(String? phone) {
   }
   return null;
 }
+
+String? validateNormalField(String? text) {
+  if (text == null || text.isEmpty) {
+    return AppStrings.fieldCannotBeEmpty;
+  }
+  return null;
+}

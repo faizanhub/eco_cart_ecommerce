@@ -10,7 +10,7 @@ import 'package:eco_cart_ecommerce/core/services/auth_service.dart';
 import 'package:eco_cart_ecommerce/core/services/sharedpreference_service.dart';
 import 'package:eco_cart_ecommerce/core/utils/utils.dart';
 import 'package:eco_cart_ecommerce/core/utils/validators.dart';
-import 'package:eco_cart_ecommerce/ui/screens/checkout_screen.dart';
+import 'package:eco_cart_ecommerce/ui/screens/checkout/checkout_screen.dart';
 import 'package:eco_cart_ecommerce/ui/screens/home/home_screen.dart';
 import 'package:eco_cart_ecommerce/ui/screens/login/login_viewmodel.dart';
 import 'package:eco_cart_ecommerce/ui/screens/signup/signup_screen.dart';
@@ -18,6 +18,7 @@ import 'package:eco_cart_ecommerce/ui/widgets/eco_button.dart';
 import 'package:eco_cart_ecommerce/ui/widgets/eco_custom_row.dart';
 import 'package:eco_cart_ecommerce/ui/widgets/eco_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,6 +39,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.black,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
+
     return ChangeNotifierProvider<LoginViewModel>(
       create: (_) => LoginViewModel(),
       child: Consumer<LoginViewModel>(
@@ -109,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               controller: emailController,
                               hintText: AppStrings.emailAddress,
                               labelText: AppStrings.emailAddress,
-                              prefixIcon: Icon(Icons.email),
+                              prefixIcon: const Icon(Icons.email),
                               validator: validateEmailField,
                             ),
 
@@ -122,11 +130,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               validator: validatePasswordField,
                               suffixIcon: model.isShowPassword
                                   ? IconButton(
-                                      icon: Icon(Icons.remove_red_eye_outlined),
+                                      icon: const Icon(
+                                          Icons.remove_red_eye_outlined),
                                       onPressed: model.toggleIsShowPassword,
                                     )
                                   : IconButton(
-                                      icon: Icon(Icons.visibility_off_outlined),
+                                      icon: const Icon(
+                                          Icons.visibility_off_outlined),
                                       onPressed: model.toggleIsShowPassword,
                                     ),
                               obscureText: model.isShowPassword,

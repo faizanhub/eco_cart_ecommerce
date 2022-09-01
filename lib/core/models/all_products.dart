@@ -1,7 +1,7 @@
 class AllProductsResponse {
   String? message;
   int? statusCode;
-  List<ProductsData>? data;
+  List<Product>? data;
 
   AllProductsResponse({this.message, this.statusCode, this.data});
 
@@ -9,15 +9,15 @@ class AllProductsResponse {
     message = json['message'];
     statusCode = json['statusCode'];
     if (json['data'] != null) {
-      data = <ProductsData>[];
+      data = <Product>[];
       json['data'].forEach((v) {
-        data!.add(ProductsData.fromJson(v));
+        data!.add(Product.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['message'] = message;
     data['statusCode'] = statusCode;
     if (this.data != null) {
@@ -27,7 +27,7 @@ class AllProductsResponse {
   }
 }
 
-class ProductsData {
+class Product {
   int? id;
   int? catId;
   String? title;
@@ -36,9 +36,9 @@ class ProductsData {
   String? image;
   String? color;
   double? price;
-  double? qty;
+  int? qty;
 
-  ProductsData(
+  Product(
       {this.id,
       this.catId,
       this.title,
@@ -49,7 +49,7 @@ class ProductsData {
       this.price,
       this.qty});
 
-  ProductsData.fromJson(Map<String, dynamic> json) {
+  Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     catId = json['catId'];
     title = json['title'];
@@ -62,7 +62,7 @@ class ProductsData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
     data['catId'] = catId;
     data['title'] = title;

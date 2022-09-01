@@ -11,10 +11,12 @@ class SplashViewModel with ChangeNotifier {
       await Future.delayed(const Duration(seconds: 2));
       await MySharedPreference().getUserData();
 
-      Navigator.pushNamed(context, HomeScreen.routeName);
+      Navigator.pushNamedAndRemoveUntil(
+          context, HomeScreen.routeName, (route) => false);
     } catch (e) {
       await Future.delayed(const Duration(seconds: 2));
-      Navigator.pushNamed(context, LoginScreen.routeName);
+      Navigator.pushNamedAndRemoveUntil(
+          context, LoginScreen.routeName, (route) => false);
     }
   }
 }

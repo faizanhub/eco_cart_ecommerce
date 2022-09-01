@@ -11,13 +11,13 @@ class AllCategoriesResponse {
     if (json['data'] != null) {
       data = <CategoriesData>[];
       json['data'].forEach((v) {
-        data!.add(new CategoriesData.fromJson(v));
+        data!.add(CategoriesData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['message'] = message;
     data['statusCode'] = statusCode;
     if (this.data != null) {
@@ -43,7 +43,7 @@ class CategoriesData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
     data['title'] = title;
     data['icon'] = icon;
