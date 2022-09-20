@@ -2,15 +2,12 @@
 
 Eco Cart Ecommerce Application.
 
-## Getting Started
+## App Screenshots:
 
-This project is a starting point for a Flutter application.
+<img src="https://user-images.githubusercontent.com/38282882/191265822-97f86243-c587-4b73-a56e-0db0be97eb1e.jpeg" width="350" height="650"> <img src="https://user-images.githubusercontent.com/38282882/191265828-49bb5580-cd8c-4048-8194-f72e7b415eef.jpeg" width="350" height="650">
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://user-images.githubusercontent.com/38282882/191265833-d95737d0-6a0c-4270-af4b-dafd334a2083.jpeg" width="350" height="650"> <img src="https://user-images.githubusercontent.com/38282882/191265837-4a82b8cd-fd24-495c-93ba-305a772cef6a.jpeg" width="350" height="650">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="https://user-images.githubusercontent.com/38282882/191265843-c43a0668-5a91-407e-868e-2f9efb59f8be.jpeg" width="350" height="650">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
